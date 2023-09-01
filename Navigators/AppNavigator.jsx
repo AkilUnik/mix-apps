@@ -7,6 +7,7 @@ import QrCodeScanPage from '../pages/QrCodeScanPage';
 import VideoPage from '../pages/VideoPage';
 import CurrentLocation from '../pages/CurrentLocation';
 import Location from '../pages/Location';
+import ModalsPage from '../pages/ModalsPage';
 
 const Tab = createMaterialTopTabNavigator();
 const AppNavigator = () => {
@@ -16,7 +17,8 @@ const AppNavigator = () => {
         {/* <Tab.Screen name="CameraScreen" component={CameraPage} /> */}
         {/* <Tab.Screen name="AudioScreen" component={QrCodeScanPage} /> */}
         {/* <Tab.Screen name="VideoScreen" component={VideoPage} /> */}
-        <Tab.Screen name="GetLocation" component={CurrentLocation} />
+        {/* <Tab.Screen name="GetLocation" component={CurrentLocation} /> */}
+        <Tab.Screen name="Modals" component={ModalsPage} />
       </Tab.Navigator>
     </NavigationContainer>
   );

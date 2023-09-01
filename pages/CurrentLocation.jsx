@@ -15,6 +15,7 @@ import Toast from 'react-native-toast-message';
 
 const CurrentLocation = () => {
   const [markers, setMarkers] = useState([]);
+
   const [location, setlocation] = useState({
     lat: 0,
     lon: 0,
@@ -29,9 +30,13 @@ const CurrentLocation = () => {
     setMarkers(newMarkers);
   };
 
+  const getMarkerlenth = () => {
+    return markers.length;
+  };
+
   const [secondPosition, setSecondPosition] = useState({
-    latitude: 23.0225,
-    longitude: 72.5714,
+    latitude: location.lat,
+    longitude: location.lon,
     latitudeDelta: 0.01,
     longitudeDelta: 0.01,
   });
@@ -50,15 +55,6 @@ const CurrentLocation = () => {
       latitudeDelta: 0.01,
       longitudeDelta: 0.01,
     });
-
-    setSecondPosition(prev => {
-      return {
-        latitude: cords.coordinate.latitude,
-        longitude: cords.coordinate.longitude,
-        latitudeDelta: 0.01,
-        longitudeDelta: 0.01,
-      };
-    });
   };
 
   const findDistance = () => {
@@ -66,7 +62,7 @@ const CurrentLocation = () => {
       {latitude: firstPosition.latitude, longitude: firstPosition.longitude},
       {latitude: secondPosition.latitude, longitude: secondPosition.longitude},
     );
-    console.log(typeof distance);
+
     Toast.show({
       visibilityTime: 2000,
       type: 'success',
@@ -83,6 +79,12 @@ const CurrentLocation = () => {
           Geolocation.getCurrentPosition(
             position => {
               setFirstPosition({
+                latitudeDelta: 0.01,
+                longitudeDelta: 0.01,
+                latitude: position.coords.latitude,
+                longitude: position.coords.longitude,
+              });
+              setSecondPosition({
                 latitudeDelta: 0.01,
                 longitudeDelta: 0.01,
                 latitude: position.coords.latitude,
