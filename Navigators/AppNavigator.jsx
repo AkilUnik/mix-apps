@@ -8,17 +8,19 @@ import VideoPage from '../pages/VideoPage';
 import CurrentLocation from '../pages/CurrentLocation';
 import Location from '../pages/Location';
 import ModalsPage from '../pages/ModalsPage';
+import Forms from '../pages/Forms';
 
 const Tab = createMaterialTopTabNavigator();
 const AppNavigator = () => {
   return (
     <NavigationContainer>
-      <Tab.Navigator initialRouteName="CameraScreen">
+      <Tab.Navigator initialRouteName="Form">
         {/* <Tab.Screen name="CameraScreen" component={CameraPage} /> */}
         {/* <Tab.Screen name="AudioScreen" component={QrCodeScanPage} /> */}
         {/* <Tab.Screen name="VideoScreen" component={VideoPage} /> */}
         {/* <Tab.Screen name="GetLocation" component={CurrentLocation} /> */}
         <Tab.Screen name="Modals" component={ModalsPage} />
+        <Tab.Screen name="Form" component={Forms} />
       </Tab.Navigator>
     </NavigationContainer>
   );
